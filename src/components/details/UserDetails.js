@@ -12,3 +12,5 @@ UserDetails.propTypes = {
   username: PropTypes.string.isRequired,
   repos: PropTypes.string.isRequired
 };
+
+export default UserDetails;
