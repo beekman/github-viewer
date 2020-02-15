@@ -14,7 +14,7 @@ const UserSearch = () => {
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" value={username} onChange={({ target }) => setUsername(target.value)} />
-      <button>Lookup</button>
+      <button>🔍</button>
     </form>
   );
 };
