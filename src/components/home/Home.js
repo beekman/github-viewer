@@ -1,9 +1,12 @@
 import React from 'react';
-import Search from '../commons/Search';
+import UserSearch from '../UserSearch/UserSearch';
+import UserDetails from '../details/UserDetails';
+
 
 const Home = () => (
   <>
-    <Search />
+    <UserSearch />
+    <UserDetails username='bender'/>
   </>
 );
 

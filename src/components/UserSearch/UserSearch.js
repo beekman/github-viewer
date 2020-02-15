@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchGithubUserDetails } from '../../actions/userActions';
+import { fetchUserInfo } from '../../actions/userActions';
 
-const VideoForm = () => {
+const UserSearch = () => {
   const [username, setUsername] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(fetchGithubUserDetails(username));
+    dispatch(fetchUserInfo(username));
   };
 
   return (
@@ -19,4 +19,4 @@ const VideoForm = () => {
   );
 };
 
-export default VideoForm;
+export default UserSearch;

@@ -1,8 +1,8 @@
-import { FETCH_USER_INFO, FETCH_USER_INFO_LOADING, FETCH_REPOS, FETCH_PULL_REQUESTS, FETCH_ISSUES } from '../actions/userActions';
+import { FETCH_USER_INFO, FETCH_USER_INFO_LOADING } from '../actions/userActions';
 
 const initialState = {
   loading: true,
-  list: []
+  details: null
 };
 
 export default function reducer(state = initialState, action) {
@@ -10,7 +10,7 @@ export default function reducer(state = initialState, action) {
     case FETCH_USER_INFO_LOADING:
       return { ...state, loading: true };
     case FETCH_USER_INFO:
-      return { ...state, loading: false, list: action.payload };
+      return { ...state, loading: false, post: action.payload };
     default:
       return state;
   }
