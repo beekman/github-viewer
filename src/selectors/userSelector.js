@@ -1,2 +1,2 @@
-export const isUserDetailsLoading = state => state.detail.loading;
-export const getUserDetails = state => state.detail.post;
+export const isUserDetailsLoading = state => state.loading;
+export const getUserDetails = state => state.details;

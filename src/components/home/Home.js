@@ -6,7 +6,7 @@ import UserDetails from '../details/UserDetails';
 const Home = () => (
   <>
     <UserSearch />
-    <UserDetails username='bender'/>
+    <UserDetails />
   </>
 );
 

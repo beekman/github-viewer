@@ -1,4 +1,4 @@
-import { getGithubUserInfo } from '../services/mocks/githubApi';
+import { getGithubUserInfo } from '../services/getGithubUserInfo';
 export const FETCH_USER_INFO = 'FETCH_USER_INFO';
 export const FETCH_USER_INFO_LOADING = 'FETCH_USER_INFO_LOADING';
 export const FETCH_REPOS = 'FETCH_ALL_REPOS';

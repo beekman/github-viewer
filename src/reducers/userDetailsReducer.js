@@ -10,7 +10,7 @@ export default function reducer(state = initialState, action) {
     case FETCH_USER_INFO_LOADING:
       return { ...state, loading: true };
     case FETCH_USER_INFO:
-      return { ...state, loading: false, post: action.payload };
+      return { ...state, loading: false, details: action.payload };
     default:
       return state;
   }
