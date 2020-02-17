@@ -3,24 +3,25 @@ import { useSelector, useDispatch } from 'react-redux';
 import { isLoadingRepos, selectRepos } from '../../selectors/reposSelector';
 import styles from './UserRepos.css';
 import { isLoadingIssues, selectIssues } from '../../selectors/issuesSelector';
-import { selectRepoPullRequests, isRepoPullRequestsLoading } from '../../selectors/pullRequestsSelector';
+import { isPullRequestsLoading, selectPullRequests } from '../../selectors/pullRequestsSelector';
 import { fetchIssues } from '../../actions/issuesActions';
 import { fetchPullRequests } from '../../actions/pullRequestsActions';
 
 function UserRepos(){
+  const state = useSelector(state => state);
+  const repos = selectRepos(state);
   const dispatch = useDispatch();
-  const reposLoading = useSelector(isLoadingRepos);
-  const repos = useSelector(selectRepos);
 
   const handleClick = repo => {
     dispatch(fetchPullRequests(repo));
     dispatch(fetchIssues(repo));
   };
+
   const repoList = repos.map(repo => (
     <li key={repo.id}>
       <div>
         <h3>{repo.name}</h3>
-        <button onClick={handleClick(repo.name)}>Examine PRs and Issues</button>
+        <a onClick={handleClick(repo.name)}>Pull Requests and Issues</a>
       </div>
       <p>{repo.description}</p>
       <a href={repo.url}>{repo.url}</a>

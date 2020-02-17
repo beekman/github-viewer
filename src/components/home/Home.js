@@ -7,7 +7,6 @@ const Home = () => (
   <>
     <UserSearch />
     <UserDetails />
-    <UserRepos />
   </>
 );
 
