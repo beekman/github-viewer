@@ -1,4 +1,4 @@
-const request = username => {
+export const getIssues = username => {
   return fetch(`https://cors-anywhere.herokuapp.com/https://api.github.com/users/${username}/issues`)
     .then(res => Promise.all([res.ok, res.json()]))
     .then(([ok, json]) => {
@@ -6,5 +6,3 @@ const request = username => {
       return json;
     });
 };
-
-export const getGithubUserIssues = username => request(`/${username}`);

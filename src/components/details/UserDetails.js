@@ -1,36 +1,36 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchUserInfo, fetchUserRepos, fetchRepoPullRequests, fetchUserIssues } from '../../actions/userActions';
-import { isUserDetailsLoading, getUserDetails, getUserRepos, getUserIssues, getRepoPullRequests } from '../../selectors/userSelector';
+import { fetchUserInfo } from '../../actions/userActions';
+
+// import { fetchIssues } from '../../actions/issuesActions';
+// import { fetchPulls } from '../../actions/pullActions';
+import { isLoadingUserDetails, selectUserDetails } from '../../selectors/userSelector';
+import UserRepos from '../userRepos/UserRepos';
+
 import Loading from '../Loading';
 
 
 const UserDetails = () =>{
   const dispatch = useDispatch();
-  const loading = useSelector(isUserDetailsLoading);
-  const details = useSelector(getUserDetails);
-  const repos = useSelector(getUserRepos);
-  // const pullrequests = useSelector(getUserDetails);
-  // const issues = useSelector(getUserIssues);
+  const loading = useSelector(isLoadingUserDetails);
+  const details = useSelector(selectUserDetails);
+  const issues = useSelector(fetchIssues);
+  // const pulls = useSelector(selectRepoPullRequests);
 
   useEffect(() => {
     dispatch(fetchUserInfo());
-    dispatch(fetchUserIssues());
-    dispatch(fetchUserRepos());
+    // dispatch(fetchIssues());
   }, []);
 
   if(loading) return <Loading />;
-  console.log(typeof details.login);
+
   console.dir(details);
   return (
     <section>
       <h3><a href={details.url}>{details.name}
         {details.login ? details.login : 'Search for User'}</a></h3>
       <img src={details.avatar_url} title='{details.login} profile image'/>
-      {console.dir(repos)};
-      {console.dir(issues)};
-      {/* <p>Repos: {repos}</p> */}
     </section>
   );
 };
