@@ -1,3 +1,6 @@
 .UserRepos{
-display: block;
+  display: block;
+  ul {
+    list-style-type: none;
+  }
 }

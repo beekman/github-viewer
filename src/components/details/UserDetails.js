@@ -7,7 +7,7 @@ export default function UserDetails() {
   const state = useSelector(state => state);
   const user = selectUserDetails(state);
 
-  if(!user){
+  if(!user) {
     return (
       <h1></h1>
     );
@@ -15,11 +15,11 @@ export default function UserDetails() {
 
   return (
     <section className={styles.UserDetails}>
-      <h3><a href={user.url}>{user.name}
-        {user.login ? user.login : 'Search for User'}</a></h3>
-      <img src={user.avatar_url} title='{user.login} profile image' />
-      <h2>{user.username}</h2>
-      <p>{user.name}<br /><a href={user.url}>{user.url}</a></p>
+      <h3><a href={user.url}>{user.name}{user.login}</a></h3>
+      <img src={user.img} title='{user.login} profile image' />
+      <h2><a href={user.url}>{user.username}</a> ({user.name})</h2>
+      <p>{user.bio}</p>
+      <p>{user.location}</p>
     </section>
   );
 }
