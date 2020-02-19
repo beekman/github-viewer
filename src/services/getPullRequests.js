@@ -1,8 +1,8 @@
-export const getPullRequests = (username, repo) => {
-  return fetch(`https://cors-anywhere.herokuapp.com/https://api.github.com/users/${username}/${repo}/pulls`)
+export const getPullRequests = (repo) => {
+  return fetch(`https://cors-anywhere.herokuapp.com/https://api.github.com/users/beekman/${repo}/pulls`)
     .then(res => Promise.all([res.ok, res.json()]))
     .then(([ok, data]) => {
-      if(!ok){
+      if(!ok) {
         throw data;
       }
       return data.map(pull => ({
