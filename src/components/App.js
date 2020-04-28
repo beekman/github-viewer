@@ -1,6 +1,10 @@
 import React from 'react';
-
+import Home from './home/Home.js';
+import styles from './App.css';
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <main className={styles.App} >
+      <Home />
+    </main>
+  );
 }
-  

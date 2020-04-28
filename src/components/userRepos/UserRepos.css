@@ -1,0 +1,6 @@
+.UserRepos{
+  display: block;
+  ul {
+    list-style-type: none;
+  }
+}
